@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bibf8nttu6hqa"]
+
+[ext_resource type="Script" uid="uid://lroj5ukc7y4" path="res://snail.gd" id="1_5b1ba"]
+[ext_resource type="Texture2D" uid="uid://b63hfuh1xd4o6" path="res://assets/Enemies/Enemy-Snail-Walk-24x24.png" id="2_er827"]
+[ext_resource type="Texture2D" uid="uid://cd2h15hsl01dl" path="res://assets/Enemies/Enemy-Snail-Attack-24x24.png" id="3_ymp48"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_761fw"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_vewxh"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_1lcli"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attacking:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_x6go0"]
+resource_name = "snail_walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Walking:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pu1r7"]
+_data = {
+&"RESET": SubResource("Animation_vewxh"),
+&"attack": SubResource("Animation_1lcli"),
+&"snail_walk": SubResource("Animation_x6go0")
+}
+
+[node name="Snail" type="CharacterBody2D" unique_id=1276111733]
+collision_layer = 4
+script = ExtResource("1_5b1ba")
+
+[node name="Walking" type="Sprite2D" parent="." unique_id=1159831218]
+texture = ExtResource("2_er827")
+hframes = 2
+vframes = 3
+
+[node name="Attacking" type="Sprite2D" parent="." unique_id=1458553999]
+visible = false
+texture = ExtResource("3_ymp48")
+hframes = 2
+vframes = 3
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653666634]
+position = Vector2(1, 7)
+shape = SubResource("CircleShape2D_761fw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=383054263]
+libraries/ = SubResource("AnimationLibrary_pu1r7")
+autoplay = &"snail_walk"
