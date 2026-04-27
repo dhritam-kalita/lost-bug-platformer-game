@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 			walking(delta)
 	if global_position.distance_to(player.global_position) < 5:
 		Global.health -= 1
+	if Global.health <= 0:
+		Global.gameOver = true
 
 func attacking(delta):
 	velocity.x = 0

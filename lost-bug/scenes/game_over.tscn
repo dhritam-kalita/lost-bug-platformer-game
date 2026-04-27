@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://b0iey5sjxkehk"]
+
+[ext_resource type="Script" uid="uid://5sk0d7446vlt" path="res://scripts/game_over.gd" id="1_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://bviwrkmiim4yv" path="res://assets/Backgrounds/parallax-background-sky.png" id="1_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://cte4yykd2md4f" path="res://assets/Backgrounds/parallax-background-mountains.png" id="2_racf3"]
+[ext_resource type="Texture2D" uid="uid://brif68204h06j" path="res://assets/Backgrounds/parallax-forest-trees-02.png" id="3_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://brhtevfm3ls7m" path="res://assets/Backgrounds/parallax-forest-trees-01.png" id="4_racf3"]
+[ext_resource type="Texture2D" uid="uid://7aif1b4howj8" path="res://assets/Player/Player-Run-24x24.png" id="5_7m3ot"]
+[ext_resource type="FontFile" uid="uid://bo2jjwab2fh8r" path="res://assets/fonts/SankofaDisplay-Regular.ttf" id="6_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://3sbv6xns8iy4" path="res://assets/UI/UI-Menu-Popup-Background.png" id="8_8bugq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3hpu"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irg28"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jtsn"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bugq"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wawo4"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56v3a"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o57t2"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq3qu"]
+atlas = ExtResource("5_7m3ot")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0p6qk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3hpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irg28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jtsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bugq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wawo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56v3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o57t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq3qu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_irg28"]
+font = ExtResource("6_v3hpu")
+font_size = 120
+font_color = Color(0.88851327, 0.84442055, 0.3791577, 1)
+outline_size = 18
+outline_color = Color(0.91323334, 0.24774101, 0.39312026, 1)
+
+[node name="GameOver" type="Control" unique_id=1265121691]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2jtsn")
+
+[node name="BG" type="Control" parent="." unique_id=1332612006]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Parallax2D" type="Parallax2D" parent="BG" unique_id=774267798]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(15, 0)
+repeat_times = 4
+
+[node name="ParallaxBackgroundSky" type="Sprite2D" parent="BG/Parallax2D" unique_id=1033024035]
+position = Vector2(639.99994, 360)
+scale = Vector2(3.7647057, 1.7999998)
+texture = ExtResource("1_tbwuq")
+
+[node name="Parallax2D2" type="Parallax2D" parent="BG" unique_id=211363589]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(25, 0)
+repeat_times = 4
+
+[node name="ParallaxBackgroundSky" type="Sprite2D" parent="BG/Parallax2D2" unique_id=1926687037]
+position = Vector2(639.99994, 360)
+scale = Vector2(3.7647057, 1.7999998)
+texture = ExtResource("2_racf3")
+
+[node name="Parallax2D3" type="Parallax2D" parent="BG" unique_id=1805011913]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(40, 0)
+repeat_times = 4
+
+[node name="ParallaxBackgroundSky" type="Sprite2D" parent="BG/Parallax2D3" unique_id=2050121114]
+position = Vector2(639.99994, 484.4)
+scale = Vector2(3.7647057, 0.7853333)
+texture = ExtResource("3_7m3ot")
+
+[node name="Parallax2D4" type="Parallax2D" parent="BG" unique_id=1860326231]
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(60, 0)
+repeat_times = 4
+
+[node name="ParallaxBackgroundSky" type="Sprite2D" parent="BG/Parallax2D4" unique_id=941144298]
+position = Vector2(639.99994, 523)
+scale = Vector2(5, 1)
+texture = ExtResource("4_racf3")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1597122265]
+repeat_size = Vector2(1350, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 4
+
+[node name="PlayerIdle24x24" type="AnimatedSprite2D" parent="Parallax2D" unique_id=381624635]
+position = Vector2(1185, 629)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_0p6qk")
+autoplay = "default"
+frame = 4
+frame_progress = 0.4370346
+flip_h = true
+
+[node name="Label" type="Label" parent="." unique_id=1774124036]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "Game over"
+label_settings = SubResource("LabelSettings_irg28")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=52636419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.315
+anchor_top = 0.413
+anchor_right = 0.685
+anchor_bottom = 0.795
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8bugq")
+
+[node name="Button" type="Button" parent="." unique_id=1894164929]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.5
+anchor_right = 0.588
+anchor_bottom = 0.531
+offset_left = -4.6400146
+offset_top = -16.0
+offset_right = 5.3599854
+offset_bottom = 5.6799927
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_v3hpu")
+theme_override_font_sizes/font_size = 30
+text = "Replay"
+flat = true
+
+[node name="Button2" type="Button" parent="." unique_id=754956899]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.613
+anchor_right = 0.588
+anchor_bottom = 0.622
+offset_left = -4.6400146
+offset_top = -25.359985
+offset_right = 5.3599854
+offset_bottom = 12.160004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_v3hpu")
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+flat = true
+
+[node name="Button3" type="Button" parent="." unique_id=538990695]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.717
+anchor_right = 0.588
+anchor_bottom = 0.717
+offset_left = -4.6400146
+offset_top = -27.23999
+offset_right = 5.3599854
+offset_bottom = 16.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_v3hpu")
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
