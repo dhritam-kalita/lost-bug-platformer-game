@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://lroj5ukc7y4" path="res://snail.gd" id="1_5b1ba"]
 [ext_resource type="Texture2D" uid="uid://b63hfuh1xd4o6" path="res://assets/Enemies/Enemy-Snail-Walk-24x24.png" id="2_er827"]
 [ext_resource type="Texture2D" uid="uid://cd2h15hsl01dl" path="res://assets/Enemies/Enemy-Snail-Attack-24x24.png" id="3_ymp48"]
+[ext_resource type="AudioStream" uid="uid://crc7vdwymul46" path="res://assets/sounds-and-music/sondangsirait419-bekicot-220052.mp3" id="4_er827"]
+[ext_resource type="AudioStream" uid="uid://crbsql4wqgg0w" path="res://assets/sounds-and-music/daviddumaisaudio-small-monster-attack-195712.mp3" id="5_ymp48"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_761fw"]
 radius = 5.0
@@ -50,6 +52,7 @@ _data = {
 
 [node name="Snail" type="CharacterBody2D" unique_id=1276111733]
 collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_5b1ba")
 
 [node name="Walking" type="Sprite2D" parent="." unique_id=1159831218]
@@ -71,3 +74,21 @@ shape = SubResource("CircleShape2D_761fw")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=383054263]
 libraries/ = SubResource("AnimationLibrary_pu1r7")
 autoplay = &"snail_walk"
+
+[node name="Timer" type="Timer" parent="." unique_id=56107599]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=134513001]
+stream = ExtResource("4_er827")
+volume_db = 5.091
+pitch_scale = 0.1
+autoplay = true
+max_distance = 200.0
+parameters/looping = true
+
+[node name="attackAudio" type="AudioStreamPlayer2D" parent="." unique_id=1888784921]
+stream = ExtResource("5_ymp48")
+volume_db = -19.698
+max_distance = 500.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4cq0phsoog3m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vaw2d"]
+
+[node name="AndroidControls" type="CanvasLayer" unique_id=372409337]
+
+[node name="left" type="TouchScreenButton" parent="." unique_id=770925234]
+position = Vector2(38, 575)
+scale = Vector2(115.000015, 100.99999)
+texture_normal = SubResource("CanvasTexture_vaw2d")
+passby_press = true
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="." unique_id=660920893]
+position = Vector2(228, 575)
+scale = Vector2(115.000015, 100.99999)
+texture_normal = SubResource("CanvasTexture_vaw2d")
+passby_press = true
+action = "right"
+
+[node name="jump" type="TouchScreenButton" parent="." unique_id=767437508]
+position = Vector2(1075, 546)
+scale = Vector2(138, 130.00002)
+texture_normal = SubResource("CanvasTexture_vaw2d")
+passby_press = true
+action = "jump"

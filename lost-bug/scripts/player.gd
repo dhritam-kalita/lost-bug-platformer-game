@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var GRAVITY := 800
 @export var SPEED: int = 300
-@export var JUMP_SPEED: int = 350
+@export var JUMP_SPEED: int = 400
 signal position_changed(pos: Vector2)
 
 var direction := Vector2.ZERO
@@ -10,11 +10,14 @@ var direction := Vector2.ZERO
 func _ready() -> void:
 	#set default animation to idle
 	$AnimatedSprite2D.play("idle")
-
 func _physics_process(delta: float) -> void:
-	movement(delta)
-	animator()
-	position_changed.emit(global_position)
+	if not Global.gameOver:
+		movement(delta)
+		animator()
+		position_changed.emit(global_position)
+	else:
+		collision_mask = 5
+		collision_layer = 6
 
 func movement(delta):
 	#left and right movement

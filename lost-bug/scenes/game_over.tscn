@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7aif1b4howj8" path="res://assets/Player/Player-Run-24x24.png" id="5_7m3ot"]
 [ext_resource type="FontFile" uid="uid://bo2jjwab2fh8r" path="res://assets/fonts/SankofaDisplay-Regular.ttf" id="6_v3hpu"]
 [ext_resource type="Texture2D" uid="uid://3sbv6xns8iy4" path="res://assets/UI/UI-Menu-Popup-Background.png" id="8_8bugq"]
+[ext_resource type="AudioStream" uid="uid://dyhxnyemft5dm" path="res://assets/sounds-and-music/backgroundmusicforvideos-game-gaming-background-music-385611.mp3" id="9_8bugq"]
+[ext_resource type="AudioStream" uid="uid://dyjjt886gev4u" path="res://assets/sounds-and-music/delon_boomkin-game-over-retro-arcade-game-422478.mp3" id="10_wawo4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3hpu"]
 atlas = ExtResource("5_7m3ot")
@@ -227,6 +229,15 @@ theme_override_fonts/font = ExtResource("6_v3hpu")
 theme_override_font_sizes/font_size = 30
 text = "Exit"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1140885534]
+stream = ExtResource("9_8bugq")
+bus = &"Main Menu BG"
+parameters/looping = true
+
+[node name="gameOver" type="AudioStreamPlayer" parent="." unique_id=1531833786]
+stream = ExtResource("10_wawo4")
+volume_db = -21.328
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

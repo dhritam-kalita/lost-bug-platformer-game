@@ -13,7 +13,11 @@ config_version=5
 config/name="Lost Bug"
 run/main_scene="uid://cgy5sfpk4fl4a"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://l6liukklq7jy"
+
+[audio]
+
+buses/default_bus_layout="uid://unhpirmq033i"
 
 [autoload]
 
@@ -23,6 +27,11 @@ Global="*uid://cadw2k307pc3u"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 
@@ -63,6 +72,10 @@ shoot={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 2d_physics/layer_1="terrain"
@@ -78,3 +91,5 @@ shoot={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
