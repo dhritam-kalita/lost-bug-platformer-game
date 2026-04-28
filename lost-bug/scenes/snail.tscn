@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bibf8nttu6hqa"]
 
-[ext_resource type="Script" uid="uid://lroj5ukc7y4" path="res://snail.gd" id="1_5b1ba"]
+[ext_resource type="Script" uid="uid://lroj5ukc7y4" path="res://scripts/snail.gd" id="1_5b1ba"]
 [ext_resource type="Texture2D" uid="uid://b63hfuh1xd4o6" path="res://assets/Enemies/Enemy-Snail-Walk-24x24.png" id="2_er827"]
 [ext_resource type="Texture2D" uid="uid://cd2h15hsl01dl" path="res://assets/Enemies/Enemy-Snail-Attack-24x24.png" id="3_ymp48"]
 [ext_resource type="AudioStream" uid="uid://crc7vdwymul46" path="res://assets/sounds-and-music/sondangsirait419-bekicot-220052.mp3" id="4_er827"]

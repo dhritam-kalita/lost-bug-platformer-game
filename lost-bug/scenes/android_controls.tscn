@@ -1,26 +1,96 @@
 [gd_scene format=3 uid="uid://c4cq0phsoog3m"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_vaw2d"]
+[ext_resource type="Script" uid="uid://cw2c3yujchjbh" path="res://scripts/android_controls.gd" id="1_4l2um"]
+[ext_resource type="Texture2D" uid="uid://7trhlkefirf1" path="res://kenney_ui-pack/PNG/Green/Default/arrow_decorative_e.png" id="1_edonj"]
+[ext_resource type="Texture2D" uid="uid://dgtf6hhn5mqm0" path="res://kenney_ui-pack/PNG/Green/Default/arrow_decorative_w.png" id="3_ju0fv"]
+[ext_resource type="Texture2D" uid="uid://7bcr4y74yc6c" path="res://kenney_ui-pack/PNG/Green/Default/arrow_decorative_n.png" id="5_x1kvg"]
+[ext_resource type="Script" uid="uid://csqlpc8b1q2b6" path="res://scripts/h_box_container.gd" id="7_edonj"]
+[ext_resource type="Texture2D" uid="uid://4cyl6rfm3au4" path="res://kenney_ui-pack/PNG/Green/Default/icon_cross.png" id="7_g0ptv"]
+[ext_resource type="Texture2D" uid="uid://dadgs4u2hk8ju" path="res://kenney_ui-pack/Vector/Red/check_round_round_circle.svg" id="8_4l2um"]
+[ext_resource type="Texture2D" uid="uid://bpr40s34kjtkq" path="res://kenney_ui-pack/PNG/Green/Default/icon_outline_cross.png" id="8_8cjhc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv1b7"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7h3wf"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8ctr"]
+size = Vector2(17, 17)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ju0fv"]
+load_path = "res://.godot/imported/check_round_round_circle.svg-e00c35af7552789333d77fd73ea53ce3.ctex"
 
 [node name="AndroidControls" type="CanvasLayer" unique_id=372409337]
+script = ExtResource("1_4l2um")
 
-[node name="left" type="TouchScreenButton" parent="." unique_id=770925234]
-position = Vector2(38, 575)
-scale = Vector2(115.000015, 100.99999)
-texture_normal = SubResource("CanvasTexture_vaw2d")
-passby_press = true
-action = "left"
+[node name="Controls" type="Control" parent="." unique_id=1729825793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="right" type="TouchScreenButton" parent="." unique_id=660920893]
-position = Vector2(228, 575)
-scale = Vector2(115.000015, 100.99999)
-texture_normal = SubResource("CanvasTexture_vaw2d")
+[node name="right" type="TouchScreenButton" parent="Controls" unique_id=660920893]
+position = Vector2(221, 571.00006)
+scale = Vector2(3, 3.112)
+texture_normal = ExtResource("1_edonj")
+shape = SubResource("CircleShape2D_nv1b7")
 passby_press = true
 action = "right"
 
-[node name="jump" type="TouchScreenButton" parent="." unique_id=767437508]
-position = Vector2(1075, 546)
-scale = Vector2(138, 130.00002)
-texture_normal = SubResource("CanvasTexture_vaw2d")
+[node name="left" type="TouchScreenButton" parent="Controls" unique_id=771011684]
+position = Vector2(49.999985, 571.00006)
+scale = Vector2(3, 3.112)
+texture_normal = ExtResource("3_ju0fv")
+shape = SubResource("CircleShape2D_nv1b7")
+passby_press = true
+action = "right"
+
+[node name="jump" type="TouchScreenButton" parent="Controls" unique_id=767437508]
+position = Vector2(1052, 512)
+scale = Vector2(5, 4.471)
+texture_normal = ExtResource("5_x1kvg")
+shape = SubResource("CircleShape2D_7h3wf")
 passby_press = true
 action = "jump"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Controls" unique_id=1616744681]
+modulate = Color(1, 1, 1, 0.35686275)
+position = Vector2(15, 10)
+scale = Vector2(1.8333334, 1.7777777)
+texture_normal = ExtResource("7_g0ptv")
+texture_pressed = ExtResource("8_8cjhc")
+shape = SubResource("RectangleShape2D_t8ctr")
+action = "exit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1403268706]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -103.0
+offset_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+script = ExtResource("7_edonj")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=142877169]
+layout_mode = 2
+texture = ExtResource("8_4l2um")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1580085127]
+layout_mode = 2
+texture = ExtResource("8_4l2um")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=925464467]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_ju0fv")
+stretch_mode = 3
+
+[connection signal="pressed" from="Controls/TouchScreenButton" to="HBoxContainer" method="_on_touch_screen_button_pressed"]
